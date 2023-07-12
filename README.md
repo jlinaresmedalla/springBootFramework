@@ -20,3 +20,8 @@
   - para definir el código de respuesta
 - @RequestMapping 
   - para definir la ruta base de la API
+- @HttpStatus
+  - para definir el código de respuesta
+
+Tambien use lo que es el ResponseEntity para devolver una respuesta 
+personalizada con el codigo de respuesta y el cuerpo de la respuesta.

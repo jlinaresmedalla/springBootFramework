@@ -87,4 +87,63 @@ class ProductRepositoryTest {
         findProducts.forEach(p -> System.out.println(p.getSku()));
     }
 
+    @Test
+    void deleteByIdMethod(){
+        //delete entity by id
+        productRepository.deleteById(5L);
+
+        //display all entities
+        List<Product> findProducts = productRepository.findAll();
+        findProducts.forEach(System.out::println);
+    }
+
+    @Test
+    void deleteMethod(){
+        //find or retrive an entity by id
+        Product product = productRepository.findById(1L).get();
+
+        //delete entity
+        productRepository.delete(product);
+
+        //display all entities
+        List<Product> findProducts = productRepository.findAll();
+        findProducts.forEach(System.out::println);
+    }
+
+
+    @Test
+    void deleteAllMethod(){
+        //delete all entities
+        //productRepository.deleteAll(); delete all entities
+        Product p1 = productRepository.findById(6L).get();
+        Product p2 = productRepository.findById(7L).get();
+
+        productRepository.deleteAll(List.of(p1,p2));
+
+        //display all entities
+        List<Product> findProducts = productRepository.findAll();
+        findProducts.forEach(System.out::println);
+
+    }
+
+    @Test
+    void countMethod(){
+        //count all entities
+        long count = productRepository.count();
+
+        //display all entities
+        System.out.println(count);
+    }
+
+    @Test
+    void existsByIdMethod(){
+        //check if entity exists
+        boolean exists1 = productRepository.existsById(1L);
+        boolean exists2 = productRepository.existsById(6L);
+
+        //display all entities
+        System.out.println(exists1);
+        System.out.println(exists2);
+    }
+
 }

@@ -7,6 +7,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
@@ -51,8 +53,38 @@ class ProductRepositoryTest {
 
     }
 
+    @Test
+    void findById(){
+        //find or retrive an entity by id
+        Product product = productRepository.findById(1L).get();
 
+        //display entity
+        System.out.println(product.toString());
+    }
 
+    @Test
+    void saveAllMethod(){
+        //create Entities
+        List<Product> listProducts = new ArrayList<>();
+        listProducts.add(new Product("YHGR87", "Product5", "Mirror", BigDecimal.valueOf(15), false, "Alibaba.com"));
+        listProducts.add(new Product("QWE456", "Product6", "Cellphone", BigDecimal.valueOf(85), true, "Treads.com"));
+        listProducts.add(new Product("WFG3RT", "Product7", "Desk", BigDecimal.valueOf(64), false, "Amazon.com"));
 
+        //save all entities
+        productRepository.saveAll(listProducts);
+
+        //display all entities
+        System.out.println(listProducts.toString());
+    }
+
+    @Test
+    void findAllMethod(){
+        //find all entities
+        List<Product> findProducts = productRepository.findAll();
+
+        //display all entities
+        findProducts.forEach(System.out::println);
+        findProducts.forEach(p -> System.out.println(p.getSku()));
+    }
 
 }

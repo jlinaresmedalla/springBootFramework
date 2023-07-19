@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @Setter //Genera los setters
 @AllArgsConstructor //Genera el constructor con todos los argumentos
 @NoArgsConstructor //Genera el constructor sin argumentos
+@RequiredArgsConstructor //Genera el constructor con los argumentos requeridos
 @ToString //Genera el método toString
 @Table(
         name = "products",
@@ -37,12 +38,18 @@ public class Product {
     ) //Indica que el valor es generado por la base de datos
     private Long id;
     @Column(name = "stock_keeping_unit", nullable = false)
+    @NonNull
     private String sku;
     @Column(nullable = false)
+    @NonNull
     private String name;
+    @NonNull
     private String description;
+    @NonNull
     private BigDecimal price;
+    @NonNull
     private boolean active;
+    @NonNull
     private String imageURL;
     @CreationTimestamp
     private LocalDateTime dataCreated;

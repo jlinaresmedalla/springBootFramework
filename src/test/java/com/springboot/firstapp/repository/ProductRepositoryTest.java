@@ -3,14 +3,13 @@ package com.springboot.firstapp.repository;
 import com.springboot.firstapp.entity.Product;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest
 class ProductRepositoryTest {
 
@@ -66,9 +65,9 @@ class ProductRepositoryTest {
     void saveAllMethod(){
         //create Entities
         List<Product> listProducts = new ArrayList<>();
-        listProducts.add(new Product("YHGR87", "Product5", "Mirror", BigDecimal.valueOf(15), false, "Alibaba.com"));
-        listProducts.add(new Product("QWE456", "Product6", "Cellphone", BigDecimal.valueOf(85), true, "Treads.com"));
-        listProducts.add(new Product("WFG3RT", "Product7", "Desk", BigDecimal.valueOf(64), false, "Amazon.com"));
+        listProducts.add(new Product("QW263H", "randomProduct", "Pencil", BigDecimal.valueOf(15), false, "Alibaba.com"));
+        listProducts.add(new Product("PISOD0", "2product2", "Book", BigDecimal.valueOf(100), true, "Treads.com"));
+        listProducts.add(new Product("IUWS82", "9Product10", "Book", BigDecimal.valueOf(32), false, "Amazon.com"));
 
         //save all entities
         productRepository.saveAll(listProducts);
